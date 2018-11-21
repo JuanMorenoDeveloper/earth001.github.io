@@ -21,23 +21,25 @@ En este articulo, mostraremos los diferentes tipos de inyección de beans que di
 
 Para usar la funcionalidades básicas del contenedor y la inyección de dependencias necesitamos agregar las siguientes dependencias a nuestro proyecto maven:
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-    &lt;version&gt;5.0.1.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-</pre>
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.0.1.RELEASE</version>
+</dependency>
+```
 
 Las versiones más recientes las encontramos en [Maven Central](https://mvnrepository.com/artifact/org.springframework)
   
 Si adicionalmente queremos usar las anotaciones del estándar JSR-330 debemos agregar esta también:
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;dependency&gt;
-    &lt;groupId&gt;javax.inject&lt;/groupId&gt;
-    &lt;artifactId&gt;javax.inject&lt;/artifactId&gt;
-    &lt;version&gt;1&lt;/version&gt;
-&lt;/dependency&gt;
-</pre>
+```xml
+<dependency>
+    <groupId>javax.inject</groupId>
+    <artifactId>javax.inject</artifactId>
+    <version>1</version>
+</dependency>
+```
 
 # Tipos de inyección de dependencias
 
@@ -63,19 +65,20 @@ Para configurar la inyección de dependencias tenemos dos opciones, usar configu
 
 Para hacer esto partiremos del archivo application-context.xml que tenemos en la carpeta resources de nuestra aplicación. Vamos a definir dos beans, un _dataSource_ con propiedades de conexión a una base de datos, las cuales inicializaremos a través del Contenedor IoC y un _dataBaseService_ que tomara el _dataSource_.
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
-    &lt;bean id="dataSource" class="ve.com.proitcsolution.service.DataSource"&gt;
-        &lt;property name="driverClassName" value="com.mysql.jdbc.Driver" /&gt;
-	&lt;property name="url" value="jdbc:mysql://127.0.0.1/" /&gt;
-	&lt;property name="username" value="username" /&gt;
-	&lt;property name="password" value="password" /&gt;
-    &lt;/bean&gt;
-    &lt;bean id="dataBaseService" class="ve.com.proitcsolution.service.DatabaseServiceWithoutAnnotations"&gt;
-        &lt;constructor-arg ref="dataSource" /&gt;
-    &lt;/bean&gt;
-&lt;/beans&gt;
-</pre>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dataSource" class="ve.com.proitcsolution.service.DataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://127.0.0.1/" />
+	<property name="username" value="username" />
+	<property name="password" value="password" />
+    </bean>
+    <bean id="dataBaseService" class="ve.com.proitcsolution.service.DatabaseServiceWithoutAnnotations">
+        <constructor-arg ref="dataSource" />
+    </bean>
+</beans>
+```
 
 La inyección de los atributos del _dataSource_ son inicializadas a través de setter-inyección con la etiqueta _property_, la inyección del _dataSource_ a través del constructor en la clase _dataBaseService_ se hace con la etiqueta _constructor-arg_.
 
@@ -93,7 +96,8 @@ La configuración usando JavaConfig es mucho menos verbosa y solo requiere el us
 
 En ejemplo lo podemos ver en la siguiente clase:
 
-<pre class="brush: java; title: ; notranslate" title="">@Configuration
+```java
+@Configuration
 @ComponentScan(basePackages = {"ve.com.proitcsolution.service"})
 public class JavaConfig {
 
@@ -113,7 +117,7 @@ public class JavaConfig {
     return auditService;
   }
 }
-</pre>
+```
 
 # Uso
 
@@ -125,7 +129,8 @@ El framework provee anotaciones especificas para declaración de beans como _@Co
   
 En el siguiente ejemplo las clase _DatabaseService_ inicializa la dependencia _dataSource_ a través del constructor y la dependencia _auditService_ a través del setter:
 
-<pre class="brush: java; title: ; notranslate" title="">@Service
+```java
+@Service
 public class DatabaseService {
 
   private DataSource dataSource;
@@ -141,7 +146,7 @@ public class DatabaseService {
     this.auditService = auditService;
   }
 }
-</pre>
+```
 
 ## 2 Anotaciones estándar JSR 330
 
@@ -151,7 +156,8 @@ Si bien _@Inject_ y _@Autowire_ son equivalentes pero _@Autowire_ provee funcion
   
 En el siguiente test se ve un ejemplo del uso de las anotación _@Inject_, en este caso el tipo de inyección que se usa es field.
 
-<pre class="brush: java; title: ; notranslate" title="">@SpringJUnitConfig(JavaConfig.class)
+```java
+@SpringJUnitConfig(JavaConfig.class)
 public class DependencyInjectionJavaConfigTest {
 
   @Inject
@@ -162,7 +168,7 @@ public class DependencyInjectionJavaConfigTest {
   AuditService auditService;
   //Tests...
 }
-</pre>
+```
 
 # Conclusión
 
