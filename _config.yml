@@ -2,7 +2,7 @@ title:             ProITC Solution
 email:             juan.moreno@proitcsolution.com.ve
 description:       ProITC Solution
 author:            Juan Moreno
-baseurl:		   "/"
+#baseurl:		   "/"
 url:               "https://proitcsolution.com.ve"
 name:              ProITC Solution
 
