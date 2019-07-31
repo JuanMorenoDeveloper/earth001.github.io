@@ -1,12 +1,12 @@
-# [Start Bootstrap - Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/) - Official Jekyll Version
+# [Start Bootstrap - Clean Blog Jekyll](https://startbootstrap.com/template-overviews/clean-blog-jekyll/) - Official Jekyll Version
 
-[Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
+[Clean Blog Jekyll](http://startbootstrap.com/template-overviews/clean-blog-jekyll/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
 
-This repository holds the official Jekyll version of the Clean Blog!
+This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
 
 ## Preview
 
-[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/templates/clean-blog.jpg)](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)
+[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/screenshots/themes/clean-blog-jekyll.png)](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)
 
 **[View Live Preview](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)**
 
@@ -19,12 +19,12 @@ When installing the theme using RubyGems, demo images, posts, and pages are not 
 1. (Optional) Create a new Jekyll site: `jekyll new my-site`
 2. Replace the current theme in your `Gemfile` with `gem "jekyll-theme-clean-blog"`.
 3. Install the theme: `bundle install`
-4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-awesome`.
+4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-clean-blog`.
 5. Build your site: `bundle exec jekyll serve`
 
 Assuming there are no errors and the site is building properly, follow these steps next:
 
-1. Create the following pages if they do not exist already (or change the extension of exsiting markdown files from `.md` to `.html`):
+1. Create the following pages if they do not exist already (or change the extension of exisitig markdown files from `.md` to `.html`):
    - `index.html` - set to `layout: home`
    - `about.html` - set to `layout: page`
    - `contact.html` - set to `layout: page`
@@ -107,7 +107,7 @@ When using the core files, the demo images, posts, and pages are all included wi
 
 1. [Download](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/archive/master.zip) or Clone the repository.
 2. Update the following configuration settings in your `_config.yml` file:
-   - `baserul`
+   - `baseurl`
    - `url`
    - `title`
    - `email` (after setting this setting to a working email address, fill out the form on the contact page and send it - then check your email and verify the address and the form will send you messages when used)
@@ -116,6 +116,7 @@ When using the core files, the demo images, posts, and pages are all included wi
    - `twitter_username` (Optional)
    - `facebook_username` (Optional)
    - `github_username` (Optional)
+   - `linkedin_username` (Optional)
 3. Build your site: `bundle exec jekyll serve`
 
 ## Bugs and Issues
@@ -139,4 +140,4 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 
 ## Copyright and License
 
-Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/blob/gh-pages/LICENSE) license.
+Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/blob/gh-pages/LICENSE) license.
