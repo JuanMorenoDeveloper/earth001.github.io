@@ -1,6 +1,10 @@
 language: ruby
 rvm:
 - 2.4.1
+
+before_install:
+  - chmod +x /bin/cibuild
+
 script: "./bin/cibuild"
 
 env:
