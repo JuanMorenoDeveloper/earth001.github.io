@@ -1,10 +1,8 @@
 ---
-id: 83
 title: Seguridad en Java EE con JSF/JAAS – Dominio JDBC
 date: 2014-10-28T15:32:15+00:00
 author: Juan Moreno
 layout: post
-guid: http://proitcsolution.com.ve/?p=83
 permalink: /seguridad-en-java-ee-con-jsfjaas-dominio-jdbc/
 image: /wp-content/uploads/2014/10/lock-xxl.png
 categories:
@@ -29,17 +27,17 @@ JAAS permite definir dominios administrativos, de archivos, por certificado, JDB
 
 La distribución de archivos en nuestra aplicación se observan en la figura 1.
 
-<div style="text-align: center;">
-  <img class="alignnone size-full wp-image-153" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_1.png" alt="post1_1" width="245" height="296" /><br /> Figura 1. Distribución de archivos en el proyecto.
-</div>
+![Figura 1. Distribución de archivos en el proyecto.](/wp-content/uploads/2014/10/post1_1.png)
+
+Figura 1. Distribución de archivos en el proyecto.
 
 Contaremos con dos directorios protegidos _**protected**_, al que podrán acceder los usuarios del grupo de _registereduser_ e _invitedguest_, y _**registered**_ al que sólo podrán ingresar los usuarios del grupo _registereduser_.
   
 En nuestra BD tendremos dos tablas _**credentials**_ con los usuarios y **groups** con los grupos.
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-154" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_2.png" alt="post1_2" width="288" height="67" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_2.png 288w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_2-285x67.png 285w" sizes="(max-width: 288px) 100vw, 288px" /><br /> Figura 2. Tablas de autenticación.
-</div>
+![Figura 2. Tablas de autenticación.](/wp-content/uploads/2014/10/post1_2.png)
+
+Figura 2. Tablas de autenticación.
 
 Lo primero que haremos será configurar nuestro recurso y pool de conexión JDBC. Para realizar la conexión con mysql se debe cargar al servidor el driver JDBC.
   
@@ -57,9 +55,9 @@ Para el ejemplo lo llamaremos _mydb_ donde los parámetros de configuración por
   * **Resource Type:** javax.sql.DataSource
   * **Datasource Classname:** com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-155" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_3.png" alt="post1_3" width="755" height="331" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_3.png 755w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_3-300x132.png 300w" sizes="(max-width: 755px) 100vw, 755px" /><br /> Figura 3. Configuración del Pool de Conexión MySQL
-</div>
+![Figura 3. Configuración del Pool de Conexión MySQL](/wp-content/uploads/2014/10/post1_3.png)
+
+Figura 3. Configuración del Pool de Conexión MySQL
 
 #### Additional Properties:
 
@@ -73,23 +71,23 @@ Nota: Si la propiedad no se encuentra la podemos agregar.
 
 Una vez configurado esto validamos que tengamos acceso a nuestra BD haciendo ping.
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-156" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_4.png" alt="post1_4" width="380" height="113" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_4.png 380w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_4-300x89.png 300w" sizes="(max-width: 380px) 100vw, 380px" /><br /> Figura 4. Ping satisfactorio.
-</div>
+![Figura 4. Ping satisfactorio.](/wp-content/uploads/2014/10/post1_4.png)
+
+Figura 4. Ping satisfactorio.
 
 ### Configuración del recurso JDBC
 
 Para configurar el recurso JDBC seguimos la ruta en glassfish _Resources->JDBC->JDBC Resources_, marcamos new y creamos la conexión al pool definido anteriormente.
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-157" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_5.png" alt="post1_5" width="682" height="219" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_5.png 682w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_5-300x96.png 300w" sizes="(max-width: 682px) 100vw, 682px" /><br /> Figura 5. Configuración recurso JDBC
-</div>
+![Figura 5. Configuración recurso JDBC](/wp-content/uploads/2014/10/post1_5.png)
+
+Figura 5. Configuración recurso JDBC
 
 Por último nos falta configurar nuestro domino de seguridad, la configuración se hace en _Configurations->Security->Realms_, una vez allí podemos crear un nuevo dominio o reutilizar uno existente, en este ejemplo usaremos el dominio _jdbcRealm_, la configuración es la siguiente:
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-158" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_6.png" alt="post1_6" width="725" height="482" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_6.png 725w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_6-300x199.png 300w" sizes="(max-width: 725px) 100vw, 725px" /><br /> Figura 6. Configuración de jdbcRealm
-</div>
+![Figura 6. Configuración de jdbcRealm](/wp-content/uploads/2014/10/post1_6.png)
+
+Figura 6. Configuración de jdbcRealm
 
 #### Properties:
 
@@ -218,10 +216,9 @@ Click <a href="faces/registered/bienvenida.xhtml"> en este link
 </body>
 </html>
 ```
+![Figura 7. Index.html](/wp-content/uploads/2014/10/post1_7.png)
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-159" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_7.png" alt="post1_7" width="418" height="111" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_7.png 418w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_7-300x80.png 300w" sizes="(max-width: 418px) 100vw, 418px" /><br /> Figura 7. Index.html
-</div>
+Figura 7. Index.html
 
 En el archivo index tenemos dos hipervínculos a archivos de los directorios protegidos, con nuestra configuración al marcar uno de ellos se nos solicitará el login, nótese que la extensión es html, pero bien puede ser jsp o xhtml.
 
@@ -275,9 +272,9 @@ El archivo de login define la autenticación del usuario e igualmente la extensi
 </html>
 ```
 
-<div style="text-align: center;">
-  <img class="alignnone size-medium wp-image-160" src="//proitcsolution.com.ve/wp-content/uploads/2014/10/post1_8.png" alt="post1_8" width="649" height="123" srcset="https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_8.png 649w, https://proitcsolution.com.ve/wp-content/uploads/2014/10/post1_8-300x57.png 300w" sizes="(max-width: 649px) 100vw, 649px" /><br /> <strong>Figura 8. Bienvenida.xhtml</strong>
-</div>
+![Figura 8. Bienvenida.xhtml](/wp-content/uploads/2014/10/post1_8.png)
+
+Figura 8. Bienvenida.xhtml
 
 Este archivo se mantuvo igual para ambos dominios ahora bien se agregó un hipervínculo para logout.
 

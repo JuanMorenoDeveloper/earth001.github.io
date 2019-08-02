@@ -1,10 +1,8 @@
 ---
-id: 238
 title: Tipos de inyección de dependencias con Spring
 date: 2017-12-06T04:33:31+00:00
 author: Juan Moreno
 layout: post
-guid: http://proitcsolution.com.ve/?p=238
 permalink: /inyeccion-de-dependencias-spring/
 image: /wp-content/uploads/2017/12/spring-logo.png
 categories:

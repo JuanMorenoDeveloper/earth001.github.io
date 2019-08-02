@@ -1,10 +1,8 @@
 ---
-id: 214
 title: WS-Security con signing usando Spring Boot y Apache CXF
 date: 2017-03-10T02:07:52+00:00
 author: Juan Moreno
 layout: post
-guid: http://proitcsolution.com.ve/?p=214
 permalink: /ws-security-con-signing-usando-spring-boot-y-apache-cxf/
 image: /wp-content/uploads/2017/03/padlock-xxl.png
 categories:
@@ -45,11 +43,9 @@ Una vez configurado el certificado ya tenemos lo necesario para configurar nuest
 
 En la figura 1  se observa el directorio del proyecto del servidor
 
-<img class="size-medium wp-image-222 aligncenter" src="https://proitcsolution.com.ve/wp-content/uploads/2017/03/server-wss-spring-180x300.png" alt="Proyecto del servidor" width="180" height="300" srcset="https://proitcsolution.com.ve/wp-content/uploads/2017/03/server-wss-spring-180x300.png 180w, https://proitcsolution.com.ve/wp-content/uploads/2017/03/server-wss-spring.png 273w" sizes="(max-width: 180px) 100vw, 180px" />
+![Figura 1. Proyecto del servidor](/wp-content/uploads/2017/03/server-wss-spring.png)
 
-<p style="text-align: center;">
-  Figura 1. Proyecto del servidor
-</p>
+Figura 1. Proyecto del servidor
 
 A continuación muestro el archivo pom.xml con las dependencias usadas en el servidor:
 
@@ -320,15 +316,11 @@ En la línea 62 y 63 se ve como configura la acción de firma y marca de tiempo 
 
 En la figura 2 se observa la estructura del proyecto del cliente:
 
-<img class="size-medium wp-image-228 aligncenter" src="https://proitcsolution.com.ve/wp-content/uploads/2017/03/client-wss-spring-163x300.png" alt="Estructura del proyecto del cliente" width="163" height="300" srcset="https://proitcsolution.com.ve/wp-content/uploads/2017/03/client-wss-spring-163x300.png 163w, https://proitcsolution.com.ve/wp-content/uploads/2017/03/client-wss-spring.png 297w" sizes="(max-width: 163px) 100vw, 163px" />
+![Figura 2. Estructura del proyecto del cliente](/wp-content/uploads/2017/03/client-wss-spring.png)
 
-<p style="text-align: center;">
-  Figura 2. Estructura del proyecto del cliente
-</p>
+Figura 2. Estructura del proyecto del cliente
 
-<p style="text-align: left;">
-  Las dependencias del cliente son la siguientes:
-</p>
+Las dependencias del cliente son la siguientes:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
