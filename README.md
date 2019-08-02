@@ -3,7 +3,7 @@
 This is my blog: [proitcsolution.com.ve](https://proitcsolution.com.ve)
 
 You are welcome to submit corrections to this blog. In order to do that,
-you will need [Ruby](https://www.ruby-lang.org/en/) 2.3+,
+you will need [Ruby](https://www.ruby-lang.org/en/) 2.4+,
 [Bundler](https://bundler.io/) installed. Then, run this:
 
 ```bash
