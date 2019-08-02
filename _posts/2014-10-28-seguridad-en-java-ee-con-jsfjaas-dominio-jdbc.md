@@ -3,6 +3,7 @@ title: Seguridad en Java EE con JSF/JAAS – Dominio JDBC
 date: 2014-10-28T15:32:15+00:00
 author: Juan Moreno
 layout: post
+comments: true
 permalink: /seguridad-en-java-ee-con-jsfjaas-dominio-jdbc/
 image: /wp-content/uploads/2014/10/lock-xxl.png
 categories:
