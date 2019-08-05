@@ -349,3 +349,5 @@ En el _Bean_ Usuario se usan los métodos _getDatosUsuario_ y logout para obtene
 Para concluir el post quiero enfatizar que es sólo un ejemplo básico, el nivel de parámetros de configuración y potencial que podemos aprovechar de JAAS es muy amplio.
 
 Pueden descargar una copia completa del proyecto y definición de la base de datos del repositorio github <https://github.com/earth001/Ejercicios-JavaEE-Seguridad>.
+
+**UPDATE IMPORTANTE**: Esta post tienes fines didacticos, es importante que las contraseñas **siempre** se guarden en **encriptadas** en la base de datos, para ello se deben escoger los algoritmos de encriptación y digest en el jdbcRealm.  
