@@ -4,10 +4,12 @@ date: 2019-07-30T01:53:29+00:00
 author: Juan Moreno
 layout: post
 comments: true
+exclude: true
 permalink: /testing-unitario-mas-alla-de-comprobar-funcionamiento/
 image: /wp-content/uploads/2019/07/avoid-legacy.png
 
 categories:
+  - spanish
   - testing
 ---
 

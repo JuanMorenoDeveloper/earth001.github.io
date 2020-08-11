@@ -4,9 +4,11 @@ date: 2017-03-10T02:07:52+00:00
 author: Juan Moreno
 layout: post
 comments: true
+exclude: true
 permalink: /ws-security-con-signing-usando-spring-boot-y-apache-cxf/
 image: /wp-content/uploads/2017/03/padlock-xxl.png
 categories:
+  - spanish
   - cxf
   - java
   - security
