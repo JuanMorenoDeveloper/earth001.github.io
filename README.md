@@ -10,6 +10,9 @@ you will need [Ruby](https://www.ruby-lang.org/en/) 2.4+,
 $ bundle update
 $ bundle exec jekyll serve
 ```
+If you like previewing drafts you'll need to use:
+
+`$ bundle exec jekyll serve --drafts`
 
 In about 3-4 minutes of building you should be able to see the blog
 at `http://localhost:4000`. Make your changes and run `jekyll` again. If
