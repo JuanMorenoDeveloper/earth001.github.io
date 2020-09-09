@@ -28,52 +28,69 @@ class BankAccount {
 }
 ```
 
-Now, lets create a list of bank accounts and filter it by balance:
+Now, lets create a list of bank accounts: 
 
 ```java
 //Arrange
-int limit = 300;
 var accounts = List
     .of(new BankAccount(100), new BankAccount(200),
         new BankAccount(300), new BankAccount(400),
         new BankAccount(500));
+```
 
+and filter it by a fixed amount balance, let's say 300:
+
+```java
 //Act
+int limit = 300;
 var result = accounts
     .stream()
     .filter(account -> account.getBalance() >= limit)
     .collect(Collectors.toList());
 ```
-At this point we already accomplished the **arrange**, and the **act** parts, in the next parts we explore how to do the **assert** part.
+According to `limit`, when we filter the list, we'll get in `result` a new list with a size of 3.
+
+At this point we already accomplished the **arrange**, and the **act** parts, in the next sections we explore how to do the **assert** part.
 
 ## 1. Don't use `assertEquals`
 
-According to `limit`, when we filter the list, we'll get a new list with a size of 3.
+An alternative to verify it is with the `assertEquals` method:
 
-An alternative to verify is with the `assertEquals` method:
-    
 ```java
 assertEquals(result.size(), 3);
 ```
 
-Don't get me wrong, `assertEquals` works great but lacks expressiveness, and another problem is in witch order we need to put the params, for example, what is the difference between:
+Don't get me wrong, `assertEquals` works great but lacks expressiveness, and we need to think carefully in which order we need to put the params, for example, what is the difference between:
 
 ```java
 assertEquals(result.size(), 3);
-```  
+```
 and:
 ```java
 assertEquals(3, result.size());
 ```
 
-We can think is the same, but the output is different, in the first case we'll get:
+We can think is the same, actually when the test is OK we'll get a green result.
+
+Now, lets make the test fail changing the number 3 to 5.
+
+```java
+assertEquals(result.size(), 5);
+``` 
+in the first case we'll get:
 
 ```java
 org.opentest4j.AssertionFailedError: 
 Expected :3
 Actual   :5
 ```
-and in the second case we'll see:
+and in the second case:
+
+```java
+assertEquals(5, result.size());
+```
+
+we'll see:
 
 ```java
 org.opentest4j.AssertionFailedError: 
@@ -81,15 +98,15 @@ Expected :5
 Actual   :3
 ```
 
-In one case the problem is the expected value and in the other case the problem the calculation result. 
+With these outputs I can't guess which is the problem; is it the expected value? or is it the calculation result?. 
 
-That is because in a test suite with multiple unit tests the expressiveness matters to fix bugs and improve the maintenance. 
+When we work in a test suite with multiple unit tests it is very important maintain the expressiveness to fix bugs and improve readability. 
 
 ## 2. Use `assertThat` instead 
 
 An alternative option to `assertEquals` is `assertThat`. JUnit offers us the possibility of using a variety of [third-party assertion libraries](https://junit.org/junit5/docs/5.6.2/user-guide/#writing-tests-assertions-third-party) to enrich our matchers options.
  
- An example of these matchers libraries is [Hamcrest](http://hamcrest.org/JavaHamcrest/) library. With Hamcrest we can rewrite our assertion part to something like this:
+An example of these matchers libraries is [Hamcrest](http://hamcrest.org/JavaHamcrest/). With Hamcrest we can rewrite our assertion part to something like this:
  
 ```java
 assertThat(result, hasSize(3));
@@ -113,7 +130,7 @@ The last Hamcrest version can be found in [Maven Central](https://search.maven.o
 
 ## 3. Use AssertJ 
 
-Other powerful assertion library is [AssertJ](https://joel-costigliola.github.io/assertj/), also top frameworks like [Spring](https://github.com/spring-projects/spring-framework/blob/e190851aee827048346dc512f88833c8bcaab7fa/spring-core/spring-core.gradle#L68),  [Hibernate](https://github.com/hibernate/hibernate-orm/blob/20273b81ee623d74d4c3d8efed2e7f2ab2f79c4e/gradle/libraries.gradle#L30), also [JUnit 5](https://github.com/junit-team/junit5/blob/cfdf09aad5ed70fae210fe14fad6d6356f749242/dependencies/dependencies.gradle.kts#L24) already use it.
+Another powerful assertion library is [AssertJ](https://joel-costigliola.github.io/assertj/), also top frameworks like [Spring](https://github.com/spring-projects/spring-framework/blob/e190851aee827048346dc512f88833c8bcaab7fa/spring-core/spring-core.gradle#L68), [Hibernate](https://github.com/hibernate/hibernate-orm/blob/20273b81ee623d74d4c3d8efed2e7f2ab2f79c4e/gradle/libraries.gradle#L30), also [JUnit 5](https://github.com/junit-team/junit5/blob/cfdf09aad5ed70fae210fe14fad6d6356f749242/dependencies/dependencies.gradle.kts#L24) already use it.
 
 
 ```java
@@ -138,4 +155,4 @@ The last version can be found in [Maven Central](https://search.maven.org/search
 
 In this tutorial, we saw how to use different assertions libraries to improve or unit tests to become more expressive, easy to read and maintain.
 
-The full code can be found over [Github](https://github.com/JuanMorenoDeveloper/3-ways-to-improve-our-unit-test-assertions)  
+The full code can be found over [Github](https://github.com/JuanMorenoDeveloper/3-ways-to-improve-our-unit-test-assertions)
