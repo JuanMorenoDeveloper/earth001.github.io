@@ -1,6 +1,6 @@
 ---
 title: 3 ways to improve our unit test assertions
-date: 2020-08-10T23:34:35+00:00
+date: 2020-09-09T00:01:35+00:00
 author: Juan Moreno
 layout: post
 comments: true
