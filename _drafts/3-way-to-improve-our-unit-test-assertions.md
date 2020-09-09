@@ -136,6 +136,6 @@ The last version can be found in [Maven Central](https://search.maven.org/search
 
 ## Conclusions
 
-In this tutorial, we saw how to use different assertions libraries to improve or unit tests to become more expressiveness, easy to read and maintain.
+In this tutorial, we saw how to use different assertions libraries to improve or unit tests to become more expressive, easy to read and maintain.
 
 The full code can be found over [Github](https://github.com/JuanMorenoDeveloper/3-ways-to-improve-our-unit-test-assertions)  
