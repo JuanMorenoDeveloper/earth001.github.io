@@ -5,8 +5,9 @@ author: Juan Moreno
 layout: post
 comments: true
 exclude: true
+excerpt: ¿Cómo integrar JAAS con JSF en Glassfish?
 permalink: /seguridad-en-java-ee-con-jsfjaas-dominio-jdbc/
-image: /wp-content/uploads/2014/10/lock-xxl.png
+background: '/wp-content/uploads/2014/10/lock-xxl.png'
 categories:
   - spanish
   - glassfish

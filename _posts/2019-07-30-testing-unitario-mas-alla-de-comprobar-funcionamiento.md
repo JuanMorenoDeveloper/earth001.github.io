@@ -5,8 +5,9 @@ author: Juan Moreno
 layout: post
 comments: true
 exclude: true
+excerpt: Sé de los buenos no escribas código Legacy (código sin Tests)
 permalink: /testing-unitario-mas-alla-de-comprobar-funcionamiento/
-image: /wp-content/uploads/2019/07/avoid-legacy.png
+background: '/wp-content/uploads/2019/07/avoid-legacy.png'
 
 categories:
   - spanish

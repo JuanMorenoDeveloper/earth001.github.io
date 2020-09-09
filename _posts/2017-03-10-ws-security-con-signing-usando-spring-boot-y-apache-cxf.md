@@ -5,8 +5,9 @@ author: Juan Moreno
 layout: post
 comments: true
 exclude: true
+excerpt: Integrando WS-Security con Apache CXF y Spring Boot
 permalink: /ws-security-con-signing-usando-spring-boot-y-apache-cxf/
-image: /wp-content/uploads/2017/03/padlock-xxl.png
+background: '/wp-content/uploads/2017/03/padlock-xxl.png'
 categories:
   - spanish
   - cxf

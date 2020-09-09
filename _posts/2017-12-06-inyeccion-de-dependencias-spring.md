@@ -6,7 +6,8 @@ layout: post
 comments: true
 exclude: true
 permalink: /inyeccion-de-dependencias-spring/
-image: /wp-content/uploads/2017/12/spring-logo.png
+excerpt: ¿Cómo inyectar dependencias con Spring?
+background: '/wp-content/uploads/2017/12/spring-logo.png'
 categories:
   - spanish
   - java
