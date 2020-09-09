@@ -1,6 +1,6 @@
 ---
 title: 3 ways to improve our unit test assertions
-date: 2020-09-09T00:01:35+00:00
+date: 2020-09-09T00:15:09+03:00
 author: Juan Moreno
 layout: post
 comments: true
@@ -50,7 +50,7 @@ var result = accounts
 ```
 According to `limit`, when we filter the list, we'll get in `result` a new list with a size of 3.
 
-At this point we already accomplished the **arrange**, and the **act** parts, in the next sections we explore how to do the **assert** part.
+At this point, we already accomplished the **arrange**, and the **act** parts, in the next sections we explore how to do the **assert** part.
 
 ## 1. Don't use `assertEquals`
 
@@ -70,7 +70,7 @@ and:
 assertEquals(3, result.size());
 ```
 
-We can think is the same, actually when the test is OK we'll get a green result.
+We can think is the same, actually, when the test is OK we'll get a green result.
 
 Now, lets make the test fail changing the number 3 to 5.
 
@@ -100,7 +100,7 @@ Actual   :3
 
 With these outputs I can't guess which is the problem; is it the expected value? or is it the calculation result?. 
 
-When we work in a test suite with multiple unit tests it is very important maintain the expressiveness to fix bugs and improve readability. 
+When we work in a test suite with multiple unit tests it is very important to maintain the expressiveness to fix bugs and improve readability. 
 
 ## 2. Use `assertThat` instead 
 
@@ -130,8 +130,9 @@ The last Hamcrest version can be found in [Maven Central](https://search.maven.o
 
 ## 3. Use AssertJ 
 
-Another powerful assertion library is [AssertJ](https://joel-costigliola.github.io/assertj/), also top frameworks like [Spring](https://github.com/spring-projects/spring-framework/blob/e190851aee827048346dc512f88833c8bcaab7fa/spring-core/spring-core.gradle#L68), [Hibernate](https://github.com/hibernate/hibernate-orm/blob/20273b81ee623d74d4c3d8efed2e7f2ab2f79c4e/gradle/libraries.gradle#L30), also [JUnit 5](https://github.com/junit-team/junit5/blob/cfdf09aad5ed70fae210fe14fad6d6356f749242/dependencies/dependencies.gradle.kts#L24) already use it.
+Another powerful assertion library is [AssertJ](https://joel-costigliola.github.io/assertj/), actually, top frameworks like [Spring](https://github.com/spring-projects/spring-framework/blob/e190851aee827048346dc512f88833c8bcaab7fa/spring-core/spring-core.gradle#L68), [Hibernate](https://github.com/hibernate/hibernate-orm/blob/20273b81ee623d74d4c3d8efed2e7f2ab2f79c4e/gradle/libraries.gradle#L30), and [JUnit 5](https://github.com/junit-team/junit5/blob/cfdf09aad5ed70fae210fe14fad6d6356f749242/dependencies/dependencies.gradle.kts#L24) are using it.
 
+With the AssertJ fluent syntax, we can check the size of the list and add extra verifications; for example that the `BackAccount` with 100 balance isn't present:
 
 ```java
 assertThat(result)
@@ -139,7 +140,7 @@ assertThat(result)
     .doesNotContain(new BankAccount(100));
 ```
 
-And the error message (if we change the size expected to 5) we'll get is also very helpful:
+and the error message (if we change the size expected to 5) is very helpful:
 
 ```java
 java.lang.AssertionError: 
@@ -149,10 +150,10 @@ Expected size:<5> but was:<3> in:
     BankAccount{balance=500.0}]>
 ```
 
-The last version can be found in [Maven Central](https://search.maven.org/search?q=g:org.assertj%20AND%20a:assertj-core)
+The last AssertJ's version can be found in [Maven Central](https://search.maven.org/search?q=g:org.assertj%20AND%20a:assertj-core).
 
 ## Conclusions
 
-In this tutorial, we saw how to use different assertions libraries to improve or unit tests to become more expressive, easy to read and maintain.
+In this tutorial, we saw how to use different assertions libraries to improve our unit tests to become more expressive, easy to read and maintain.
 
-The full code can be found over [Github](https://github.com/JuanMorenoDeveloper/3-ways-to-improve-our-unit-test-assertions)
+The full code can be found over on [Github](https://github.com/JuanMorenoDeveloper/3-ways-to-improve-our-unit-test-assertions).
