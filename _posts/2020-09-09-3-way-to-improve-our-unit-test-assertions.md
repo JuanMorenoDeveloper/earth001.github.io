@@ -5,13 +5,14 @@ author: Juan Moreno
 layout: post
 comments: true
 permalink: /3-ways-to-improve-our-unit-test-assertions/
+excerpt: Does have this test the behavior we're looking for?
 categories:
   - testing
   - best-practices
 ---
 ## Introduction
 
-Usually, unit tests have 3 parts: Arrange, Act, and Assertion. The assertion is the test's verification part and, It has the responsibility to answer the question: Does have this test the behavior that we're looking for?
+Usually, unit tests have 3 parts: Arrange, Act, and Assertion. The assertion is the test's verification part and, It has the responsibility to answer the question: Does have this test the behavior we're looking for?
 
 In this tutorial, we'll explore some alternatives to improve our test assertions to become more concise, powerful, and easy to read.
 
