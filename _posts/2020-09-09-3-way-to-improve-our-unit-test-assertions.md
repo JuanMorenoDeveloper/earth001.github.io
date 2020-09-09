@@ -6,6 +6,7 @@ layout: post
 comments: true
 permalink: /3-ways-to-improve-our-unit-test-assertions/
 excerpt: Does have this test the behavior we're looking for?
+background: '/img/featured_assertions.png'
 categories:
   - testing
   - best-practices
