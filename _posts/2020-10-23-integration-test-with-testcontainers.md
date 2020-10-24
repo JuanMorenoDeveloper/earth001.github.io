@@ -1,11 +1,11 @@
 ---
-title: How to use TestContainers with integration tests
-date: 2020-10-23T11:11:00-03:00
+title: How to use Testcontainers with integration tests
+date: 2020-10-24T18:02:00-03:00
 author: Juan Moreno
 layout: post
 comments: true
 permalink: /how-to-use-testcontainers-with-integration-tests/
-excerpt: Do you want to use Spring to inject dependencies?
+excerpt: A quick introduction to Testcontainers
 background: '/img/featured_testcontainers.png'
 categories:
   - testing
@@ -170,13 +170,13 @@ class DefaultAppRepository implements AppRepository {
 ```
 With our code ready, let's use Testcontainers to write some integration tests. 
 
-Let's explain the TestContainers annotations we'll be using it in our tests:
+Some of the annotations we'll be using in our tests:
 
 * [`@Testcontainers`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Testcontainers.html): This annotation handles automatically the container's lifecycle. It is in charge of start-up and closed-up every container in our tests. 
 
-* [`@Container`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Container.html): Marks containers to be  managed by the Testcontainers extension. The Testcontainers API has a great variety of container alternatives as [Databases](https://www.testcontainers.org/modules/databases/) (SQL and NoSQL options), Messaging, [MockServer](https://www.testcontainers.org/modules/mockserver/), [AWS Localstack](https://www.testcontainers.org/modules/localstack/), and more. Also, if we need it we can create [GenericContainer](https://javadoc.io/static/org.testcontainers/testcontainers/1.14.3/org/testcontainers/containers/GenericContainer.html) too.     
+* [`@Container`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Container.html): Marks containers to be managed by the Testcontainers extension. The Testcontainers API has a great variety of container alternatives as [Databases](https://www.testcontainers.org/modules/databases/) (SQL and NoSQL options), Messaging, [MockServer](https://www.testcontainers.org/modules/mockserver/), [AWS Localstack](https://www.testcontainers.org/modules/localstack/), and more. Also, if we need it we can create [GenericContainer](https://javadoc.io/static/org.testcontainers/testcontainers/1.14.3/org/testcontainers/containers/GenericContainer.html) too.     
 
-Now lets see in action, we'll create `DefaultRepositoryIntegrationTest` class:
+Now lets see it in action, we'll create `DefaultRepositoryIntegrationTest` class:
 
 ```java
 @Testcontainers
@@ -225,9 +225,9 @@ class DefaultRepositoryIntegrationTest {
 
 As we saw, we create a [`PostgreSQLContainer`](https://javadoc.io/static/org.testcontainers/postgresql/1.15.0-rc2/org/testcontainers/containers/PostgreSQLContainer.html) using the image tag [postgres:9.6.12](https://hub.docker.com/layers/postgres/library/postgres/9.6.2/images/sha256-b3b8a22299537a43dc0eb06d8cd469fcdbbca5e8b221dd5f67653242c3951fa1?context=explore), and we used the API to set up the common options.
 
-A powerful option is the [`withTmpFs`](https://javadoc.io/static/org.testcontainers/testcontainers/1.15.0-rc2/org/testcontainers/containers/GenericContainer.html#withTmpFs-java.util.Map-) that allow us to map the container volume to our host memory.
+A powerful option is the [`withTmpFs`](https://javadoc.io/static/org.testcontainers/testcontainers/1.15.0-rc2/org/testcontainers/containers/GenericContainer.html#withTmpFs-java.util.Map-) that allows us to map the container volume to our host memory.
 
-Take into account if we want to speed up our integration tests we can declare containers as static fields to share between tests. In our case, our test run on an average bellow to 150ms.
+If we want to speed up our integration tests we can declare containers as static fields to share between tests. In our case, our test run on an average bellow to 150ms.
 
 # Conclusion
 
