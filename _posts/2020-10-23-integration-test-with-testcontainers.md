@@ -20,7 +20,7 @@ In this tutorial, we are going to explore how Testcontainers works and how it ca
 
 # Test Levels
 
-According to the test levels pyramid of [Mike Cohn](https://martinfowler.com/bliki/TestPyramid.html); there are 3 main levels 
+According to the test levels pyramid of [Mike Cohn](https://martinfowler.com/bliki/TestPyramid.html); there are 3 main levels: 
 
 1. Unit Test
 2. Integration Test
