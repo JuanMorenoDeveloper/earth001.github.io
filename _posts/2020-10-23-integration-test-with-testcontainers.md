@@ -182,12 +182,11 @@ Now lets see in action, we'll create `DefaultRepositoryIntegrationTest` class:
 @Testcontainers
 class DefaultRepositoryIntegrationTest {
  
-  @Container
   static final GenericContainer container = new PostgreSQLContainer(
       "postgres:9.6.12")
-      .withDatabaseName("foo")
-      .withUsername("foo")
-      .withPassword("secret")
+      .withDatabaseName("product_db")
+      .withUsername("user")
+      .withPassword("password")
       .withInitScript("init_script.sql")
       .withTmpFs(singletonMap("/var/lib/postgresql/data", "rw"));
 
