@@ -27,6 +27,11 @@ According to the test levels pyramid of [Mike Cohn](https://martinfowler.com/bli
 3. UI Test
 
 ![Figura 1. Test Pyramid.](/wp-content/uploads/2020/test-pyramid.png)
+{:.image-caption}
+*Figura 1. Test Pyramid.*
+{:.image-caption}
+**Source**: [https://martinfowler.com/bliki/TestPyramid.html](https://martinfowler.com/bliki/TestPyramid.html)
+{:.image-caption}
 
 Although unit tests are the pyramid base and a very important part, in some scenarios integration tests are very helpful to verify behavior especially with communication with external components outside the business logic.
 
