@@ -26,9 +26,9 @@ According to the test levels pyramid of [Mike Cohn](https://martinfowler.com/bli
 2. Integration Test
 3. UI Test
 
-![Figura 1. Test Pyramid.](/wp-content/uploads/2020/test-pyramid.png)
+![Figure 1. Test Pyramid.](/wp-content/uploads/2020/test-pyramid.png)
 {:.image-caption}
-*Figura 1. Test Pyramid.*
+*Figure 1. Test Pyramid.*
 {:.image-caption}
 **Source**: [https://martinfowler.com/bliki/TestPyramid.html](https://martinfowler.com/bliki/TestPyramid.html)
 {:.image-caption}
@@ -168,7 +168,15 @@ class DefaultAppRepository implements AppRepository {
   }
 }
 ```
-With our code ready, let's use Testcontainers to write some integration tests. To do that, we'll create `DefaultRepositoryIntegrationTest` class:
+With our code ready, let's use Testcontainers to write some integration tests. 
+
+Let's explain the TestContainers annotations we'll be using it in our tests:
+
+* [`@Testcontainers`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Testcontainers.html): This annotation handles automatically the container's lifecycle. It is in charge of start-up and closed-up every container in our tests. 
+
+* [`@Container`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Container.html): Marks containers to be  managed by the Testcontainers extension. The Testcontainers API has a great variety of container alternatives as [Databases](https://www.testcontainers.org/modules/databases/) (SQL and NoSQL options), Messaging, [MockServer](https://www.testcontainers.org/modules/mockserver/), [AWS Localstack](https://www.testcontainers.org/modules/localstack/), and more. Also, if we need it we can create [GenericContainer](https://javadoc.io/static/org.testcontainers/testcontainers/1.14.3/org/testcontainers/containers/GenericContainer.html) too.     
+
+Now lets see in action, we'll create `DefaultRepositoryIntegrationTest` class:
 
 ```java
 @Testcontainers
@@ -215,11 +223,12 @@ class DefaultRepositoryIntegrationTest {
   }
 }
 ```
-Let's explain the TestContainers annotations use it in the class:
 
-* [`@Testcontainers`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Testcontainers.html): This annotation handles automatically the container's lifecycle. 
+As we saw, we create a [`PostgreSQLContainer`](https://javadoc.io/static/org.testcontainers/postgresql/1.15.0-rc2/org/testcontainers/containers/PostgreSQLContainer.html) using the image tag [postgres:9.6.12](https://hub.docker.com/layers/postgres/library/postgres/9.6.2/images/sha256-b3b8a22299537a43dc0eb06d8cd469fcdbbca5e8b221dd5f67653242c3951fa1?context=explore), and we used the API to set up the common options.
 
-* [`@Container`](https://javadoc.io/doc/org.testcontainers/junit-jupiter/latest/org/testcontainers/junit/jupiter/Container.html): Marks containers to be  managed by the Testcontainers extension. Take into account if we want to speed up our integration tests we can declare containers as static fields to  share between tests and also we can use the [`withTmpFs`](https://javadoc.io/static/org.testcontainers/testcontainers/1.15.0-rc2/org/testcontainers/containers/GenericContainer.html#withTmpFs-java.util.Map-) option to storing data in host memory. In our case, all tests run on an average of 126ms.
+A powerful option is the [`withTmpFs`](https://javadoc.io/static/org.testcontainers/testcontainers/1.15.0-rc2/org/testcontainers/containers/GenericContainer.html#withTmpFs-java.util.Map-) that allow us to map the container volume to our host memory.
+
+Take into account if we want to speed up our integration tests we can declare containers as static fields to share between tests. In our case, our test run on an average bellow to 150ms.
 
 # Conclusion
 
