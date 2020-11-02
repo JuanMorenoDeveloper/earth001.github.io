@@ -7,7 +7,7 @@ form: true
 ---
 
 <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
-<form name="sentMessage" id="contactForm" action="https://formspree.io/info@proitcsolution.com.ve" method="POST">
+<form name="sentMessage" id="contactForm" action="https://formspree.io/f/xrgoklnd" method="POST">
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Name</label>
@@ -18,20 +18,69 @@ form: true
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Email Address</label>
-      <input type="email" class="form-control" placeholder="Email Address" id="email" name="_replyto" required data-validation-required-message="Please enter your email address.">
+      <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address.">
       <p class="help-block text-danger"></p>
     </div>
   </div>
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Message</label>
-      <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+      <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="Please enter a message."></textarea>
       <p class="help-block text-danger"></p>
     </div>
   </div>
   <br>
-  <div id="success"></div>
+  <div id="success"><p id="my-form-status"></p></div>
   <div class="form-group">
     <button type="submit" value="Send" class="btn btn-primary" id="sendMessageButton">Send</button>
   </div>
 </form>
+<!-- Place this script at the end of the body tag -->
+
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+
+    var form = document.getElementById("sentMessage");
+    var button = document.getElementById("sendMessageButton");
+    var status = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+
+    function success() {
+      form.reset();
+      button.style = "display: none ";
+      status.innerHTML = "Thanks!";
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem.";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+</script>
