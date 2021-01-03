@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/earth001/earth001.github.io.svg?branch=master)](https://travis-ci.org/earth001/earth001.github.io)
+[![Build Status](https://travis-ci.org/JuanMorenoDeveloper/earth001.github.io.svg?branch=master)](https://travis-ci.org/earth001/earth001.github.io)
 
 This is my blog: [proitcsolution.com.ve](https://proitcsolution.com.ve)
 
