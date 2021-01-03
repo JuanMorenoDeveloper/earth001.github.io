@@ -14,6 +14,8 @@ linkedin_username: juanantoniomorenoortega
 stackoverflow_username: 4825845
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-144979526-1 # out your google-analytics code
+google_captcha_public_key: 6Lf8mR4aAAAAAP7wyPVLmZPd29bu5Sf36-IXunb4
+formspree_url: https://formspree.io/f/xrgoklnd
 
 # Build settings
 markdown:          kramdown
