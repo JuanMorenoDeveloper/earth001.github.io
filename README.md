@@ -10,6 +10,12 @@ you will need [Ruby](https://www.ruby-lang.org/en/) 2.4+,
 $ bundle update
 $ bundle exec jekyll serve --livereload
 ```
+
+For drafts only use:
+
+```bash 
+$ bundle exec jekyll serve --drafts --livereload
+```
 If you like previewing drafts you'll need to use:
 
 `$ bundle exec jekyll serve --drafts`
