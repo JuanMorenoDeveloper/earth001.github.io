@@ -8,7 +8,7 @@ you will need [Ruby](https://www.ruby-lang.org/en/) 2.4+,
 
 ```bash
 $ bundle update
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve --livereload
 ```
 If you like previewing drafts you'll need to use:
 
